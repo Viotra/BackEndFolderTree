@@ -18,6 +18,7 @@ public class Week04Assignment {
         for (int i = 0; i < ages2.length; i++) {
         	ages2[i] = (int) (Math.random() * 100); //This is just so that I don't have come up with my own numbers.
         	//System.out.println(ages2[i]);
+        	
         }
         System.out.println(Arrays.toString(ages2));
         //System.out.println(Arrays.toString(ages));
