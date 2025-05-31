@@ -58,7 +58,6 @@ public class Week04Assignment {
         int[] nameLengths;
         nameLengths = new int[names.length];
         
-        //I wanted to use the enhanced for, but I figured the traditional for would be easier
         for (int i = 0; i < names.length; i++) {
         	nameLengths[i] = names[i].length(); // i will go from 0 to 5 since the names array has 6 elements. i will be used to represent the index for both the names array and the nameLengths array
         }
@@ -71,7 +70,7 @@ public class Week04Assignment {
         System.out.println(getFullName("Batt", "Masterson"));
 //	9. Write a method that takes an array of int and returns true if the sum of all the ints in the array is greater than 100.
         int[] numbers = {1, 2, 3, 4, 5};
-        //Initially, I tried to put the values in the method directly as {101, 104, 256, 390}, but that didn't work.
+        
         System.out.println(sumOver100(numbers));
 //	10. Write a method that takes an array of double and returns the average of all the elements in the array.
         double[] doubles = {3.14, 16.5, 187.77, 525600.6};
