@@ -26,7 +26,16 @@ public class Week04Assignment {
         int lastMinusFirst2 = ages2[ages2.length - 1] - ages2[0];
         System.out.println(lastMinusFirst2);
 //	iii. Show that using the index values for the elements is dynamic (works for arrays of different lengths).
-//
+        //I do not understand the premise of iii. as the index values are not dynamic for an array. We can have an index out of bound error if we try to use an index that is not in the array.
+        //My best guess is that this prompt is asking to show code that can index through an array regardless of the size
+        //The for loop here will start at index 0 and increment by 1 after printing the element found at index i. It does not go out of bounds as it has to be less than the length or number of elements in the array.
+        for (int i = 0; i < ages.length; i++) { //This will print out 7 elements as ages has 7 elements
+        	System.out.println(ages[i]);
+        }
+        
+        for (int i = 0; i < ages2.length; i++) { //This will print out 9 elements as ages2 has 9 elements
+        	System.out.println(ages2[i]);
+        }
 //	c. Use a loop to iterate through the array and calculate the average age. Print the result to the console.
         //Not stated which array. I will do both. I created a method at the bottom called averageAge which utilizes and enhanced for loop.
         System.out.println(averageAge(ages));
@@ -61,9 +70,9 @@ public class Week04Assignment {
 //	8. Write a method that takes two Strings, firstName and lastName, and returns a full name (the full name should be the first and the last name as a String separated by a space).
         System.out.println(getFullName("Batt", "Masterson"));
 //	9. Write a method that takes an array of int and returns true if the sum of all the ints in the array is greater than 100.
-        int[] numbers = {101, 1, 256, 390};
+        int[] numbers = {1, 2, 3, 4, 5};
         //Initially, I tried to put the values in the method directly as {101, 104, 256, 390}, but that didn't work.
-        System.out.println(allOver100(numbers));
+        System.out.println(sumOver100(numbers));
 //	10. Write a method that takes an array of double and returns the average of all the elements in the array.
         double[] doubles = {3.14, 16.5, 187.77, 525600.6};
         System.out.println(averageDoubles(doubles));
@@ -126,18 +135,12 @@ public class Week04Assignment {
 		return average /= nums.length; //This is just a repeat of the age average honestly
 	}
 	
-	public static boolean allOver100(int[] nums) {
-		boolean over100 = true;
-		
-		//I set the over100 variable to start at true because there's a chance my loop can end sooner for anything less than 100
+	public static boolean sumOver100(int[] nums) {
+		int sum = 0;
 		for (int num : nums) {
-			if (num <= 100) {
-				over100 = false;
-				
-				break;
-			}
+			sum += num;
 		}
-		return over100;
+		return sum > 100;
 	}
 	
 	public static String getFullName (String firstName, String lastName) {
@@ -192,9 +195,15 @@ public class Week04Assignment {
 	
 	public static String concatArray(String[] strs) {
 		StringBuilder concat = new StringBuilder();
-		
-		for (String str : strs) {
-			concat.append(str);
+		//Using traditional for loop so that I can ignore the space on the last element
+		for (int i = 0; i < strs.length; i++) {
+			//Use of a condition allows me to avoid adding a space to the last element
+			if(i == strs.length - 1) {
+				concat.append(strs[i]);
+			}
+			else {
+				concat.append(strs[i] + " ");
+			}
 		}
 		return concat.toString();
 	}
