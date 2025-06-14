@@ -75,4 +75,7 @@ public class Deck {
 		cards.get(0).describe();
 		cards.remove(0);
 	}
+	public void add(Card card) {
+		this.cards.add(card);
+	}
 }
