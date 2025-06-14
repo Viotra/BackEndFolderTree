@@ -17,10 +17,10 @@ public class Card {
 //
 //2.     describe (prints out information about a card)
 
-	public void describe() {
+	public void describe() {//This method will just display card information
 		System.out.println(this.name + " of " + this.suit);
 	}
-	
+	//Most of the setters here are used to create a new card, but the getters are rarely used because of the describe method
 	public void getName() {
 		System.out.println(this.name);
 	}
@@ -33,7 +33,7 @@ public class Card {
 	public void setSuit(String suit) {
 		this.suit = suit;
 	}
-	public int getValue() {
+	public int getValue() {//This is what is used to compare one card to another
 		return this.value;
 	}
 	public void setValue(int value) {

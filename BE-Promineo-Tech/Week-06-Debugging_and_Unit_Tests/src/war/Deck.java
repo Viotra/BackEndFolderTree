@@ -5,16 +5,16 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-	private List<Card> deck = new ArrayList<Card>();
+	private List<Card> deck = new ArrayList<Card>(); //This is where all my card objects will be stored
 
 	public Deck() {
 		// TODO Auto-generated method stub
-		int counter = 2;
-		for (int i = 1; i <= 52; i++) {
+		int counter = 2; //counter starts at 2 to match the card values in the deck
+		for (int i = 1; i <= 52; i++) {//This loop will run through all 52 of the cards and add them to the deck.
 			StringBuilder cardName = new StringBuilder();
 			Card card = new Card();
 			
-			switch (counter) {
+			switch (counter) {//I am using the switch here to assign names to the non-numbered cards
 				case 11:
 					cardName.append("Jack");
 					break;
@@ -25,14 +25,14 @@ public class Deck {
 					cardName.append("King");
 					break;
 				case 14:
-					cardName.append("Ace");
+					cardName.append("Ace");//Aces are high
 					break;
 				default:
 					cardName.append(counter);
 					break;
 			}
 			
-			switch (i % 4) {
+			switch (i % 4) {//I used this switch to increment counter only after we have a remainder of 0 so that I could assign the suit to each card one value at a time.
 				case 1:
 					card.setName(cardName.toString());
 					card.setSuit("Hearts");
@@ -67,10 +67,10 @@ public class Deck {
 		return this.deck;
 	}
 	public void shuffle() {
-		Collections.shuffle(this.deck);
+		Collections.shuffle(this.deck);//I did find how to do this using Math.rand(), but this method was more simplistic than swapping cards at a random position
 	}
 	public Card draw() {
-		return this.deck.remove(0);
+		return this.deck.remove(0);//using remove takes the card out of the deck, since it's in the return line, the removed card will also be returned
 	}
 	public void add(Card card) {
 		this.deck.add(card);

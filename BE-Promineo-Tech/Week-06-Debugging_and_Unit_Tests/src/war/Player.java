@@ -28,9 +28,9 @@ public class Player{
 	private List <Card> hand = new ArrayList<Card>();
 	private int score = 0;	
 	private String name;
-	
-	public void getName() {
-		System.out.println(this.name);
+	//The following are mostly getters and setters, with the exception of draw, which uses the draw method of the deck to add to player hand
+	public String getName() {
+		return this.name;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -44,7 +44,7 @@ public class Player{
 	public void draw(Deck deck) {
 		this.hand.add(deck.draw());
 	}
-	public List<Card> getHand() {
+	public List<Card> getHand() {//This method was only used in debugging to verify each player had different hands.
 		return this.hand;
 	}
 	public void incrementScore() {
